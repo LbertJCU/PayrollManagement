@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-Dag dig dug hatiku
-=======
-test test test
->>>>>>> origin/master
