@@ -19,19 +19,22 @@
 		}
 		if ($count==1 & $_POST['pword']==$search['Password']) {
 			session_start();
-			$_SESSION['username']=$_POST['uname'];
-			$name=mysql_query("SELECT FirstName FROM member WHERE UserName='".$_SESSION['username']."'",$connect);
-			$user=mysql_fetch_array($name);
-			$_SESSION['FirstName']=$user['FirstName'];
 			$_SESSION['login']=true;
+			$_SESSION['username']=$_POST['uname'];
+			$name=mysql_query("SELECT name FROM member WHERE UserName='".$_SESSION['username']."'",$connect);
+			$user=mysql_fetch_array($name);
+			$_SESSION['EmpID']=$user['empnum'];
+			$_SESSION['FName']=$user['firstName'];
+			$_SESSION['LName']=$user['lastName'];
+			$_SESSION['Level']=$user['level'];
 		}
-		if ($search['Type']=="Employee") {
+		if ($search['level']=="Employee") {
 			header("Location:ehome.html");
 		}
-		if ($search['Type']=="Manager") {
+		if ($search['level']=="Manager") {
 			header("Location:mhome.html");
 		}
-		if ($search['Type']=="Admin") {
+		if ($search['level']=="Admin") {
 			header("Location:ahome.php");
 		}
 		
