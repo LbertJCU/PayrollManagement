@@ -18,11 +18,11 @@
 </menu>
 <content>
 <h1>File Upload</h1>
-<form action="upload.php" method="post">
-<p><label for="timecard">Upload your time card here : </label><input type="file" id="timecard"/></p>
+<form action="upload.php" method="post" enctype="multipart/form-data">
+<p><label for="timecard">Upload your time card here : </label><input type="file" name="time" id="timecard"/></p>
 <p><label for="salesreceipt">Upload your sales receipt here : </label>
-<input type="file" id="salesreceipt" multiple/></p>
-<input type="submit" value="Upload"/>
+<input type="file" name="sales" id="salesreceipt" multiple/></p>
+<input type="submit" name="upload" value="Upload"/>
 </form>
 </content>
 <footer>
