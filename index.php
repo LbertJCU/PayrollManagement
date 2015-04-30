@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -18,6 +21,8 @@
      <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="assets/css/login.css" />
     <link rel="stylesheet" href="assets/plugins/magic/magic.css" />
+    	<?php if ($_SESSION['msg']!="") echo "<script>alert(\"".$_SESSION['msg']."\");</script>"; 
+	$_SESSION['msg']=""; ?>
      <!-- END PAGE LEVEL STYLES -->
    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -47,11 +52,11 @@
             </form>
         </div>
         <div id="forgot" class="tab-pane">
-            <form action="forgot.php" class="form-signin">
+            <form action="lostpw.php" class="form-signin" method="post">
                 <p class="text-muted text-center btn-block btn btn-primary btn-rect">Enter your valid e-mail</p>
-                <input type="email"  required="required" placeholder="Your E-mail"  class="form-control" />
+                <input type="email"  required="required" name="accmail" placeholder="Your E-mail"  class="form-control" />
                 <br />
-                <button class="btn text-muted text-center btn-success" type="submit">Recover Password</button>
+                <button class="btn text-muted text-center btn-success" name="ask" type="submit">Recover Password</button>
             </form>
         </div>
     </div>
@@ -59,7 +64,6 @@
         <ul class="list-inline">
             <li><a class="text-muted" href="#login" data-toggle="tab">Login</a></li>
             <li><a class="text-muted" href="#forgot" data-toggle="tab">Forgot Password</a></li>
-            <li><a class="text-muted" href="#signup" data-toggle="tab">Signup</a></li>
         </ul>
     </div>
 
